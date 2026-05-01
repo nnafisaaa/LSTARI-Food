@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LSTARI Food & Common House</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-container">
+    <h2 class="logo">LSTARI</h2>
+    <div class="hamburger">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+    <ul class="nav-menu">
+      <li><a class="nav-link" href="#home">Beranda</a></li>
+      <li><a class="nav-link" href="#menu">Menu</a></li>
+      <li><a class="nav-link" href="#about">Tentang</a></li>
+      <li><a class="nav-link" href="#gallery">Galeri</a></li>
+      <li><a class="nav-link" href="#contact">Kontak</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="home" class="hero">
+  <div class="hero-content">
+    <h1>LSTARI Food & Common House</h1>
+    <p class="tagline">Art Space & Cozy Cafe</p>
+
+    <div class="hero-rating">
+      ⭐ 4.7 (108 review)
+    </div>
+
+    <a href="#menu" class="btn-primary">Lihat Menu</a>
+  </div>
+</section>
+
+<!-- MENU -->
+<section id="menu" class="menu-section">
+  <h2>Menu Kami</h2>
+
+  <div class="menu-tabs">
+    <button class="tab-btn active" data-category="makanan" onclick="loadMenu('makanan')">Makanan</button>
+    <button class="tab-btn" data-category="minuman" onclick="loadMenu('minuman')">Minuman</button>
+  </div>
+
+  <!-- Container Menu -->
+  <div id="menu-container" class="menu-grid"></div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="about-section">
+  <div class="container about-content">
+    <div class="about-image">
+      <img src="assets/about.png" alt="Tentang LSTARI">
+    </div>
+    <div class="about-text">
+      <h2 class="section-title">Tentang LSTARI</h2>
+      <p>
+        LSTARI adalah cafe dengan konsep art space yang menghadirkan suasana cozy,
+        cocok untuk nongkrong, kerja, maupun menikmati kopi. Kami menggabungkan
+        kopi berkualitas dengan ruang yang nyaman untuk setiap pengunjung.
+      </p>
+      <div class="about-features">
+        <div class="feature"><i class="fas fa-paint-brush"></i><span>Nuansa art space yang inspiratif</span></div>
+        <div class="feature"><i class="fas fa-mug-hot"></i><span>Kopi dan minuman spesial setiap hari</span></div>
+        <div class="feature"><i class="fas fa-wifi"></i><span>Area kerja nyaman dengan Wi-Fi gratis</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" class="gallery-section">
+  <div class="container">
+    <h2 class="section-title">Galeri</h2>
+    <div class="gallery-grid">
+      <img src="assets/gallery-1.png" alt="Galeri 1">
+      <img src="https://picsum.photos/seed/gallery2/600/450" alt="Galeri 2">
+      <img src="https://picsum.photos/seed/gallery3/600/450" alt="Galeri 3">
+      <img src="https://picsum.photos/seed/gallery4/600/450" alt="Galeri 4">
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+  <div class="container contact-grid">
+    <div class="contact-info">
+      <h2 class="section-title">Kontak</h2>
+      <div class="info-item">
+        <i class="fas fa-map-marker-alt"></i>
+        <div>
+          <h4>Alamat</h4>
+          <p>Jl. Seruni No.34, Surabaya</p>
+        </div>
+      </div>
+      <div class="info-item">
+        <i class="fas fa-phone"></i>
+        <div>
+          <h4>Telepon</h4>
+          <p>0812-1588-1845</p>
+        </div>
+      </div>
+      <div class="info-item">
+        <i class="fas fa-clock"></i>
+        <div>
+          <h4>Jam Buka</h4>
+          <p>Buka sampai 23.00</p>
+        </div>
+      </div>
+      <a href="https://wa.me/62812158818845?text=Halo%20LSTARI%2C%20saya%20ingin%20membuat%20reservasi" class="btn-reservasi" target="_blank">
+        <i class="fab fa-whatsapp"></i> Reservasi via WhatsApp
+      </a>
+    </div>
+    <div class="contact-map">
+      <iframe
+        src="https://maps.google.com/maps?q=LSTARI%20Food%20Common%20House%20Surabaya&output=embed"
+        width="100%"
+        height="100%"
+        style="border:0;"
+        loading="lazy">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>© 2026 LSTARI Food & Common House</p>
+</footer>
+
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/62812158818845?text=Halo%20LSTARI%2C%20saya%20ingin%20membuat%20reservasi" class="floating-whatsapp" target="_blank" title="Chat dengan kami di WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<script src="js/main.js"></script>
+
+</body>
+</html>
