@@ -199,17 +199,33 @@ function setDynamicImages() {
 function setupMobileNav() {
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
+    const navOverlay = document.querySelector('.nav-overlay');
     const navLinks = document.querySelectorAll('.nav-link');
     
     hamburger.addEventListener('click', function() {
         hamburger.classList.toggle('active');
         navMenu.classList.toggle('active');
+        if (navOverlay) {
+            navOverlay.classList.toggle('active');
+        }
     });
+    
+    // Close menu when clicking overlay
+    if (navOverlay) {
+        navOverlay.addEventListener('click', function() {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+            navOverlay.classList.remove('active');
+        });
+    }
     
     navLinks.forEach(link => {
         link.addEventListener('click', function() {
             hamburger.classList.remove('active');
             navMenu.classList.remove('active');
+            if (navOverlay) {
+                navOverlay.classList.remove('active');
+            }
         });
     });
 }
@@ -237,4 +253,28 @@ window.addEventListener('scroll', function() {
     } else {
         navbar.style.padding = '15px 0';
     }
+});
+
+// Prevent double tap zoom on buttons and links on mobile
+document.addEventListener('touchend', function(e) {
+    if (e.target.tagName === 'BUTTON' || 
+        e.target.tagName === 'A' || 
+        e.target.classList.contains('btn-primary') ||
+        e.target.classList.contains('tab-btn')) {
+        e.preventDefault();
+        e.target.click();
+    }
+}, false);
+
+// Improve mobile viewport on orientation change
+window.addEventListener('orientationchange', function() {
+    setTimeout(() => {
+        const navbar = document.querySelector('.navbar');
+        const navMenu = document.querySelector('.nav-menu');
+        if (navMenu && navMenu.classList.contains('active')) {
+            navMenu.classList.remove('active');
+            const hamburger = document.querySelector('.hamburger');
+            if (hamburger) hamburger.classList.remove('active');
+        }
+    }, 100);
 });

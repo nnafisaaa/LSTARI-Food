@@ -261,6 +261,7 @@ ul {
     justify-content: center;
     gap: 15px;
     margin-bottom: 40px;
+    flex-wrap: wrap;
 }
 
 .tab-btn {
@@ -282,7 +283,7 @@ ul {
 
 .menu-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
 }
 
@@ -728,10 +729,53 @@ ul {
     }
 }
 
-/* Responsive */
+/* Responsive - Tablet & Below */
 @media (max-width: 992px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .hamburger {
+        display: block;
+        z-index: 1001;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        right: -100%;
+        top: 0;
+        height: 100vh;
+        width: 280px;
+        background: var(--white);
+        flex-direction: column;
+        padding: 80px 30px 30px;
+        gap: 0;
+        transition: right 0.3s ease;
+        box-shadow: -5px 0 20px rgba(0,0,0,0.1);
+        overflow-y: auto;
+    }
+    
+    .nav-menu.active {
+        right: 0;
+    }
+    
+    .nav-menu li {
+        padding: 15px 0;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .nav-link {
+        font-size: 1.1rem;
+        display: block;
+        padding: 10px 0;
+    }
+    
+    .nav-link::after {
+        display: none;
+    }
+    
     .hero h1 {
-        font-size: 3rem;
+        font-size: 2.8rem;
     }
     
     .about-content {
@@ -742,12 +786,46 @@ ul {
         order: -1;
     }
     
-    .contact-grid {
+    .contact-grid,
+    .about-section .container,
+    .contact-section .container {
         grid-template-columns: 1fr;
+    }
+    
+    .about-text .section-title {
+        text-align: center;
+    }
+    
+    .about-text p {
+        text-align: center;
+    }
+    
+    .services {
+        margin-top: -40px;
+        padding: 40px 0;
+    }
+    
+    .section-title {
+        font-size: 2.2rem;
+        margin-bottom: 15px;
+    }
+    
+    .section-subtitle {
+        margin-bottom: 30px;
+        font-size: 0.95rem;
+    }
+    
+    .menu-grid {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
+/* Responsive - Tablet */
 @media (max-width: 768px) {
+    .container {
+        padding: 0 15px;
+    }
+    
     .hamburger {
         display: block;
     }
@@ -785,12 +863,45 @@ ul {
         text-align: center;
     }
     
+    .hero {
+        height: 70vh;
+    }
+    
     .hero h1 {
         font-size: 2.5rem;
     }
     
+    .hero .tagline {
+        font-size: 1.2rem;
+    }
+    
     .section-title {
         font-size: 2rem;
+        margin-bottom: 15px;
+    }
+    
+    .section-subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 25px;
+    }
+    
+    .menu-grid,
+    .services-grid,
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .menu-item {
+        border-radius: 15px;
+    }
+    
+    .menu-item-image {
+        height: 180px;
+    }
+    
+    .menu-item-content {
+        padding: 20px;
     }
     
     .footer-content {
@@ -806,27 +917,379 @@ ul {
     .gallery-thumbnails {
         flex-wrap: wrap;
     }
+    
+    .about-features {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .feature {
+        padding: 15px;
+        border-radius: 15px;
+    }
 }
 
+/* Responsive - Small Phones */
 @media (max-width: 480px) {
+    .container {
+        padding: 0 12px;
+        max-width: 100%;
+    }
+    
+    html {
+        font-size: 14px;
+    }
+    
+    /* Hero Section */
+    .hero {
+        height: 60vh;
+        min-height: 500px;
+        padding-top: 60px;
+    }
+    
     .hero h1 {
-        font-size: 2rem;
+        font-size: 1.8rem;
+        line-height: 1.3;
+        margin-bottom: 12px;
     }
     
     .hero .tagline {
-        font-size: 1.1rem;
+        font-size: 1rem;
+        margin-bottom: 15px;
     }
     
-    .cta-section h2 {
-        font-size: 1.8rem;
+    .hero-rating {
+        font-size: 0.9rem;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
     }
     
-    .services-grid {
-        grid-template-columns: 1fr;
+    .hero .btn-primary {
+        padding: 12px 24px;
+        font-size: 0.9rem;
+        width: auto;
+    }
+    
+    /* Sections */
+    .section-title {
+        font-size: 1.6rem;
+        margin-bottom: 12px;
+    }
+    
+    .section-subtitle {
+        font-size: 0.85rem;
+        margin-bottom: 20px;
+    }
+    
+    /* Navigation */
+    .navbar {
+        padding: 12px 0;
+    }
+    
+    .nav-container {
+        padding: 0 15px;
+    }
+    
+    .logo {
+        font-size: 1.4rem;
+    }
+    
+    .bar {
+        width: 20px;
+        height: 2.5px;
+    }
+    
+    /* Menu Section */
+    .menu-section {
+        padding: 60px 0;
     }
     
     .menu-tabs {
-        flex-direction: column;
-        align-items: center;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 15px;
+        justify-content: flex-start;
+        padding-left: 12px;
+        padding-right: 12px;
+        gap: 10px;
+        margin-bottom: 25px;
+    }
+    
+    .tab-btn {
+        white-space: nowrap;
+        min-height: 44px;
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        border-radius: 30px;
+    }
+    
+    .menu-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .menu-item {
+        border-radius: 12px;
+    }
+    
+    .menu-item-image {
+        height: 160px;
+    }
+    
+    .menu-item-content {
+        padding: 15px;
+    }
+    
+    .menu-item-content h3 {
+        font-size: 1rem;
+    }
+    
+    .menu-item-content p {
+        font-size: 0.8rem;
+        margin-bottom: 10px;
+    }
+    
+    .menu-item-price {
+        font-size: 1.1rem;
+    }
+    
+    /* About Section */
+    .about-section {
+        padding: 60px 0;
+    }
+    
+    .about-section .container {
+        gap: 25px;
+    }
+    
+    .about-image {
+        border-radius: 15px;
+    }
+    
+    .about-text .section-title {
+        text-align: center;
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+    
+    .about-text p {
+        text-align: center;
+        font-size: 0.9rem;
+        margin-bottom: 20px;
+    }
+    
+    .about-features {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-top: 20px;
+    }
+    
+    .feature {
+        padding: 12px 15px;
+        gap: 12px;
+        border-radius: 12px;
+    }
+    
+    .feature i {
+        font-size: 1rem;
+        min-width: 20px;
+    }
+    
+    .feature span {
+        font-size: 0.85rem;
+    }
+    
+    /* Gallery */
+    .gallery-section {
+        padding: 60px 0;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .gallery-grid img {
+        height: 220px;
+        border-radius: 12px;
+    }
+    
+    /* Contact Section */
+    .contact-section {
+        padding: 60px 0;
+    }
+    
+    .contact-info {
+        padding: 20px;
+        border-radius: 12px;
+    }
+    
+    .contact-info .section-title {
+        text-align: center;
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+    
+    .info-item {
+        flex-direction: row;
+        gap: 12px;
+        margin-bottom: 15px;
+        align-items: flex-start;
+    }
+    
+    .info-item i {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        font-size: 1.2rem;
+    }
+    
+    .info-item h4 {
+        font-size: 0.95rem;
+        margin-bottom: 4px;
+    }
+    
+    .info-item p {
+        font-size: 0.85rem;
+        margin: 0;
+    }
+    
+    .contact-map {
+        min-height: 250px;
+        border-radius: 12px;
+    }
+    
+    /* Buttons */
+    .btn-primary,
+    .btn,
+    .tab-btn {
+        min-height: 44px;
+        touch-action: manipulation;
+    }
+    
+    /* Footer */
+    .footer {
+        padding: 40px 0 15px;
+    }
+    
+    .footer-content {
+        gap: 20px;
+        margin-bottom: 25px;
+    }
+    
+    .footer-logo h3 {
+        font-size: 1.3rem;
+        margin-bottom: 8px;
+    }
+    
+    .footer-logo p {
+        font-size: 0.85rem;
+    }
+    
+    .social-link {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .footer-bottom p {
+        font-size: 0.8rem;
+    }
+    
+    /* CTA */
+    .cta-section h2 {
+        font-size: 1.5rem;
+        margin-bottom: 12px;
+    }
+    
+    .cta-section p {
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+    
+    /* Services */
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .service-card {
+        padding: 25px 20px;
+        border-radius: 15px;
+    }
+    
+    .service-card i {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+    }
+    
+    .service-card h3 {
+        font-size: 1.1rem;
+    }
+}
+
+/* Global Mobile Improvements */
+@media (max-width: 992px) {
+    html, body {
+        overflow-x: hidden;
+    }
+    
+    .btn-primary,
+    .btn,
+    .tab-btn,
+    .nav-link {
+        min-height: 44px;
+        touch-action: manipulation;
+    }
+    
+    .btn-primary:active,
+    .btn:active,
+    .tab-btn:active {
+        transform: scale(0.98);
+    }
+    
+    /* Mobile Navigation Overlay */
+    .nav-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.5);
+        z-index: 999;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    .nav-overlay.active {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Prevent horizontal scrolling */
+    * {
+        max-width: 100%;
+    }
+    
+    body {
+        font-size: 14px;
+    }
+    
+    /* Ensure proper spacing */
+    section {
+        padding: 60px 0 !important;
+    }
+    
+    /* Improve touch targets */
+    a, button, input, select, textarea {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    /* Prevent font zoom on input focus */
+    input, select, textarea {
+        font-size: 16px !important;
     }
 }

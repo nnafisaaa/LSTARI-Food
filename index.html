@@ -2,10 +2,15 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, minimum-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+<meta name="theme-color" content="#8B4513">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="description" content="LSTARI Food & Common House - Cafe dengan konsep art space yang cozy di Surabaya">
 <title>LSTARI Food & Common House</title>
 
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/whatsapp.css">
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
@@ -13,6 +18,9 @@
 </head>
 
 <body>
+
+<!-- Mobile Navigation Overlay -->
+<div class="nav-overlay"></div>
 
 <!-- NAVBAR -->
 <nav class="navbar">
@@ -49,22 +57,24 @@
 
 <!-- MENU -->
 <section id="menu" class="menu-section">
-  <h2>Menu Kami</h2>
+  <div class="container">
+    <h2 class="section-title">Menu Kami</h2>
 
-  <div class="menu-tabs">
-    <button class="tab-btn active" data-category="makanan" onclick="loadMenu('makanan')">Makanan</button>
-    <button class="tab-btn" data-category="minuman" onclick="loadMenu('minuman')">Minuman</button>
+    <div class="menu-tabs">
+      <button class="tab-btn active" data-category="makanan" onclick="loadMenu('makanan')">Makanan</button>
+      <button class="tab-btn" data-category="minuman" onclick="loadMenu('minuman')">Minuman</button>
+    </div>
+
+    <!-- Container Menu -->
+    <div id="menu-container" class="menu-grid"></div>
   </div>
-
-  <!-- Container Menu -->
-  <div id="menu-container" class="menu-grid"></div>
 </section>
 
 <!-- ABOUT -->
 <section id="about" class="about-section">
   <div class="container about-content">
     <div class="about-image">
-      <img src="assets/about.png" alt="Tentang LSTARI">
+      <img src="assets/about.png" alt="Tentang LSTARI" loading="lazy">
     </div>
     <div class="about-text">
       <h2 class="section-title">Tentang LSTARI</h2>
@@ -87,10 +97,10 @@
   <div class="container">
     <h2 class="section-title">Galeri</h2>
     <div class="gallery-grid">
-      <img src="assets/gallery-1.png" alt="Galeri 1">
-      <img src="https://picsum.photos/seed/gallery2/600/450" alt="Galeri 2">
-      <img src="https://picsum.photos/seed/gallery3/600/450" alt="Galeri 3">
-      <img src="https://picsum.photos/seed/gallery4/600/450" alt="Galeri 4">
+      <img src="assets/gallery-1.png" alt="Galeri 1" loading="lazy">
+      <img src="https://picsum.photos/seed/gallery2/600/450" alt="Galeri 2" loading="lazy">
+      <img src="https://picsum.photos/seed/gallery3/600/450" alt="Galeri 3" loading="lazy">
+      <img src="https://picsum.photos/seed/gallery4/600/450" alt="Galeri 4" loading="lazy">
     </div>
   </div>
 </section>
